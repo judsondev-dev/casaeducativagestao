@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Escolar</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Container de Login -->
+    <div id="login-container" class="login-container">
+        <div class="login-box">
+            <h2>Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Usuário:</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn-primary">Entrar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Container do Dashboard -->
+    <div id="dashboard-container" class="dashboard-container hidden">
+        <nav class="sidebar">
+            <div class="logo">
+                <h2>Sistema Escolar</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" data-page="dashboard" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="#" data-page="turmas"><i class="fas fa-users"></i> Turmas</a></li>
+                <li><a href="#" data-page="alunos"><i class="fas fa-user-graduate"></i> Alunos</a></li>
+                <li><a href="#" id="logout"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <!-- Dashboard Page -->
+            <div id="dashboard-page" class="page active">
+                <h2>Dashboard</h2>
+                <div class="dashboard-cards">
+                    <div class="card">
+                        <i class="fas fa-users"></i>
+                        <div class="card-info">
+                            <h3>Total de Turmas</h3>
+                            <p id="total-turmas">0</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-user-graduate"></i>
+                        <div class="card-info">
+                            <h3>Total de Alunos</h3>
+                            <p id="total-alunos">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Turmas Page -->
+            <div id="turmas-page" class="page">
+                <h2>Gestão de Turmas</h2>
+                <button id="nova-turma-btn" class="btn-primary">
+                    <i class="fas fa-plus"></i> Nova Turma
+                </button>
+                <div id="turmas-list"></div>
+            </div>
+
+            <!-- Alunos Page -->
+            <div id="alunos-page" class="page">
+                <h2>Gestão de Alunos</h2>
+                <div id="alunos-list"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de Turma -->
+    <div id="modal-turma" class="modal hidden">
+        <h3>Nova Turma</h3>
+        <form id="form-turma">
+            <div class="form-group">
+                <label for="nome-turma">Nome da Turma:</label>
+                <input type="text" id="nome-turma" required>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn-primary">Salvar</button>
+                <button type="button" id="cancelar-turma" class="btn-secondary">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Modal de Aluno -->
+    <div id="modal-aluno" class="modal hidden">
+        <h3>Novo Aluno</h3>
+        <form id="form-aluno">
+            <div class="form-group">
+                <label for="nome-aluno">Nome do Aluno:</label>
+                <input type="text" id="nome-aluno" required>
+            </div>
+            <div class="form-group">
+                <label for="idade-aluno">Idade:</label>
+                <input type="number" id="idade-aluno" required min="0">
+            </div>
+            <div class="form-group">
+                <label for="inicio-contrato">Início do Contrato:</label>
+                <input type="date" id="inicio-contrato" required>
+            </div>
+            <div class="form-group">
+                <label for="fim-contrato">Fim do Contrato:</label>
+                <input type="date" id="fim-contrato" required>
+            </div>
+            <div class="form-group">
+                <label for="valor-contrato">Valor do Contrato:</label>
+                <input type="number" id="valor-contrato" required min="0" step="0.01">
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn-primary">Salvar</button>
+                <button type="button" id="cancelar-aluno" class="btn-secondary">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
